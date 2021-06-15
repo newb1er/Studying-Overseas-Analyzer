@@ -1,0 +1,29 @@
+<div class="pref">
+    <mat-spinner *ngIf="!loaded"></mat-spinner>
+    <mat-form-field class="pref-form" *ngIf="loaded">
+        <mat-label>choose countries you would like to go</mat-label>
+        <mat-chip-list #chipList>
+            <mat-chip
+                *ngFor='let country of selectedCountries'
+                [selectable]="selectable"
+                [removable] = "removable"
+                (removed)="remove(country)">
+                {{country.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input
+                placeholder="New country..."
+                #countryInput
+                [formControl]="optionCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeyCodes"
+                (matChipInputTokenEnd)=add($event)>
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let country of filteredCountries | async" [value]="country" >
+                {{country.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</div>

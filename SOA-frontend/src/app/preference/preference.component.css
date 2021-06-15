@@ -1,0 +1,7 @@
+.pref {
+    display: flex;
+    justify-content: center;
+}
+.pref-form {
+    width: 100%;
+}
