@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Preferences Setting</h1>
+<mat-dialog-content class="dialog-content">
+    <app-preference #userPreferences></app-preference>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-buttons">
+    <button mat-button [mat-dialog-close]="userPreferences.selectedCountries" cdkFocusInitial>OK</button>
+</mat-dialog-actions>

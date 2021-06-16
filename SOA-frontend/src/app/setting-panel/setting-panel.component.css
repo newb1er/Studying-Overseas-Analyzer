@@ -1,0 +1,14 @@
+.dialog > .mat-dialog-container {
+    padding: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.dialog > .mat-dialog-content {
+    margin: 0;
+}
+
+.dialog > .mat-dialog-actions {
+    margin-bottom: 0px;
+    padding: 20px, 30px;
+}

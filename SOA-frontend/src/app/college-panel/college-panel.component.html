@@ -1,0 +1,43 @@
+<div *ngIf="loaded" class="panel-container">
+  <mat-accordion multi="false" displayMode="flat">
+    <mat-expansion-panel
+      *ngFor="let college of colleges; index as i"
+      class="panel"
+      md-component-id="colleges.indexOf(college)"
+      #panel
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <div class="title">
+            <div>
+              <span class="rank">
+                {{ college.ranking == null ? " -- " : college.ranking }}
+              </span>
+              <span class="separator"></span>
+              <span class="name">{{ college.institution }}</span>
+            </div>
+            <div>
+              <mat-icon color="primary">place</mat-icon>
+              {{ college.country }}
+            </div>
+          </div>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div
+        class="detail"
+        *ngFor="
+          let detail of college_details[i] | keyvalue: asIfOrder;
+          index as n
+        "
+      >
+        <span class="newline">{{ detailNames[n] }}{{ detail.value }}</span>
+      </div>
+      <div
+        class="detail"
+        *ngFor="let other of others[i] | keyvalue: asIfOrder; index as n"
+      >
+        <span class="newline">{{ otherNames[n] }}{{ other.value }}</span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

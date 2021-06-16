@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+    <span>Studying Oversea Analyzer</span>
+    <button mat-flat-button color="primary" routerLink="rank">Rank</button>
+    <button mat-flat-button color="primary" routerLink="exchange">Exchange</button>
+    <span class="toolbar-separator"></span>
+    <button mat-icon-button (click)="panel.openDialog()">
+        <mat-icon>settings</mat-icon>
+    </button>
+</mat-toolbar>
+<app-setting-panel #panel></app-setting-panel>
